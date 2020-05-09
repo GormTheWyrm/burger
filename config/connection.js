@@ -1,4 +1,5 @@
-//set up code to connect to mysql
+//connects to mysql
+//next go to ORM object in orm.js
 
 // Require mysql
 const mysql = require("mysql");

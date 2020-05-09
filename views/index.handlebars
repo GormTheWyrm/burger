@@ -1,0 +1,27 @@
+<h1> Eat-Da-Burger</h1>
+
+<div class="prepDiv">
+  {{#each burger}}
+  {{#unless devoured}}
+  {{!-- {{> cats/cat-block sleep=false}} --}}
+  {{/unless}}
+  {{/each}}
+</div>
+
+
+<div class="postDiv">
+  {{#each burger}}
+  {{#if devoured}}
+  {{!-- {{> cats/cat-block sleep=true}}  need to change the cats/cat-block part... --}}
+  {{/if}}
+  {{/each}}
+</div>
+
+{{!-- will need to add css to make postDiv and preDiv look different and appear on different side sof the screen --}}
+
+
+<form action="/action_page.php">
+  <textarea id="input1" rows="6" cols="40">
+  <input type="submit" value="Submit">
+</form>
+<p>Click the "Submit" button to add a new burger to the lineup</p>
