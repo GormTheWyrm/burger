@@ -27,6 +27,7 @@ router.get("/", function (req, res) {
       };
       console.log(handlebarObject);
       res.render("index", handlebarObject);
+      // res.render('main', {layout : 'index'});   // alt code from online, testing; their main and index are opposite mine
     });
 });
 

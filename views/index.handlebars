@@ -4,6 +4,7 @@
   {{#each burger}}
   {{#unless devoured}}
   {{!-- {{> cats/cat-block sleep=false}} --}}
+  {{>preBurger}}
   {{/unless}}
   {{/each}}
 </div>
@@ -13,6 +14,8 @@
   {{#each burger}}
   {{#if devoured}}
   {{!-- {{> cats/cat-block sleep=true}}  need to change the cats/cat-block part... --}}
+  {{!-- > partial name --}}
+  {{>postBurger}}
   {{/if}}
   {{/each}}
 </div>
@@ -21,7 +24,8 @@
 
 
 <form action="/action_page.php">
-  <textarea id="input1" rows="6" cols="40">
+{{!-- change the action to my post method! --}}
+  <textarea id="input1" rows="6" cols="40"> </textarea>
   <input type="submit" value="Submit">
 </form>
 <p>Click the "Submit" button to add a new burger to the lineup</p>
