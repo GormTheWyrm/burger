@@ -19,29 +19,58 @@
     {{{ body }}}
     {{!-- if stylesheet refuses to work... I'll work here --}}
     <style>
-        {{!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --}}
+
+
         #subButton {
             background-color: cadetblue;
         }
-        body{
+
+        body {
             background-color: salmon;
         }
-        .postDiv{
-background-color: seagreen;
+
+        .postDiv {
+            background-color: seagreen;
+            width: 260px;
         }
-        .preDiv{
-background-color:sienna;
+
+        .preDiv {
+            background-color: sienna;
+            width: 260px;
+        }
+
+        .burger-holder {
+
+            height: 33px;
+            color: silver;
         }
     </style>
     <script>
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         //submit button
-        $("#SubButton").click(function(){
-            //do something here...
-            //get api data? as json... 
 
-            console.log("test");
+        $("#SubButton").on("submit", function (event) {
+            event.preventDefault();
+    
+            let myBurger = {
+                burger_name: $("#input1").val().trim(),       //should it be "submitField?"
+                devoured: false
+            };
+
+            $.ajax("/api/burgers", {
+                type: "POST",
+                data: myBurger
+            }).then(
+                function () {
+                    console.log("posted new burger");
+                    location.reload();
+                }
+            );
+
         });
-
+        //should the route be the same as the get, for restfulness?
+        // this is not running- form is broken
+        // https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form
 
     //devouring burgers...
 

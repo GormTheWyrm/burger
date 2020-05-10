@@ -9,6 +9,12 @@ TODO
 - burgers-controller.js
 
 
++ Server.js should work
++ I got main, index and partial burgers to respond
++ my get function is working
+- my post route is not being called- need to figure out how to call it with a button...
+... client.js; event listener on the submit button!
+    -- oops, I'm writing the JS in main.handlebars... will want to move this later, probably
 
 
 
