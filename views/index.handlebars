@@ -3,7 +3,7 @@
 <div class="prepDiv">
   {{#each burger}}
   {{#unless devoured}}
-  {{!-- {{> cats/cat-block sleep=false}} --}}
+  {{!-- {{> burgers/cat-block devoured=false}} --}}
   {{>preBurger}}
   {{/unless}}
   {{/each}}
@@ -23,9 +23,10 @@
 {{!-- will need to add css to make postDiv and preDiv look different and appear on different side sof the screen --}}
 
 
-<form action="/action_page.php">
+<form method="post">
 {{!-- change the action to my post method! --}}
-  <textarea id="input1" rows="6" cols="40"> </textarea>
-  <input type="submit" value="Submit">
+  <textarea id="input1" rows="6" cols="40" name="submitField">  </textarea>
+  <input type="submit" value="Submit" id="subButton">
 </form>
 <p>Click the "Submit" button to add a new burger to the lineup</p>
+{{!-- why is this going to "/?" ? --}}

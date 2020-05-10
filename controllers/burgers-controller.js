@@ -1,20 +1,14 @@
-const express = require("express");
-//imports burger model;
-let burger = require("../models/burger.js");
+// this file routes the client...
+const express = require("express"); //server stuff...module
 let router = new express.Router;      //hopefully this links router with servers router...
+//...I had to add "new" to make this work
+
+let burger = require("../models/burger.js");  //imports burger model;
+
 
 
 // ...13_16 example is helpful... MVC Example!
 // look up express.router
-
-// This file will act as a router, directing client to routes, and providing functions for those routes
-// Thus it needs to import the burger model (which is essentially a burger clas...)
-
-
-
-//routes:
-//get; how will the app sort burgers? do I need 2 gets or is sorting done client side?
-//...lets go with 1 route that gets info...
 
 
 router.get("/", function (req, res) {
@@ -23,20 +17,33 @@ router.get("/", function (req, res) {
     burger.getAll(function(data) {
       var handlebarObject = {
         // need to define this stuff accordian to burger model... which I need to write!
-        testBurgers: data
+        burgers: data
+        //how to get this data... why is this one plural?
       };
-      console.log(handlebarObject);
+      console.log(handlebarObject); 
       res.render("index", handlebarObject);
       // res.render('main', {layout : 'index'});   // alt code from online, testing; their main and index are opposite mine
+      // es.render (‘main’, {layout: ‘index’, key1: val1, key2: val2… keyn: valn});
     });
 });
 
 router.post("/api/burgers", function (req, res) {
 //burger create function
+    // cat.create([
+    //   "name", "sleepy"
+    // ], [
+    //   req.body.name, req.body.sleepy
+    // ], function(result) {
+    //   // Send back the ID of the new quote
+    //   res.json({ id: result.insertId });
+    // });
+    // ...figure this out...
+    console.log("this should of posted");
 });
 
 router.put("/api/burgers/:id", function(req, res) {
 // update burger function
+console.log("this should of updated");
 });
 
 /*
@@ -56,7 +63,3 @@ router.put("/api/burgers/:id", function(req, res) {
 module.exports = router;
 
 
-
-//current error; "Expecting 'OPEN_INVERSE_CHAIN', 'INVERSE', 'OPEN_ENDBLOCK', got 'EOF'
- //   at Parser.parseError"
- // ran fine with a blank index.handlebars

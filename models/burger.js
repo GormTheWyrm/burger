@@ -20,28 +20,33 @@ let burger = {
         ORM.selectAll("burgers", function (res) {
             callback(res);
         });
-},
-
-/*
-// ~~ reference below!
-    all: function (callback) {
-        orm.all("burgers", function (res) {    //why plural here?
+    },
+    create: function (col1, col2, val1, val2, callback) {
+        ORM.create("burgers", col1, col2, val1, val2, function (res) {
             callback(res);
         });
     },
-    // The variables cols and vals are arrays.
-    create: function (cols, vals, cb) {
-        orm.create("cats", cols, vals, function (res) {
-            cb(res);
-        });
-    },
-    update: function (objColVals, condition, cb) {
-        orm.update("cats", objColVals, condition, function (res) {
-            cb(res);
-        });
-    }
 
-    */
+    /*
+    // ~~ reference below!
+        all: function (callback) {
+            orm.all("burgers", function (res) {    //why plural here?
+                callback(res);
+            });
+        },
+        // The variables cols and vals are arrays.
+        create: function (cols, vals, cb) {
+            orm.create("cats", cols, vals, function (res) {
+                cb(res);
+            });
+        },
+        update: function (objColVals, condition, cb) {
+            orm.update("cats", objColVals, condition, function (res) {
+                cb(res);
+            });
+        }
+    
+        */
 };
 
 // Export the database functions for the controller (catsController.js).

@@ -1,11 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eat-Da-Burger!</title>
+
+    {{!-- <link rel="stylesheet" href="../../public/assets/css/style.css" type="text/css" /> --}}
+    {{!-- css does not work --}}
+    <script src="https://code.jquery.com/jquery.js"></script>
+    {{!-- <script src="../../public/assets/js/client.js"></script> --}}
+    {{!--  --}}
 </head>
+
+</head>
+
 <body>
     {{{ body }}}
+    {{!-- if stylesheet refuses to work... I'll work here --}}
+    <style>
+        #subButton {
+            background-color: cadetblue;
+        }
+        body{
+            background-color: salmon;
+        }
+    </style>
+    <script>
+        //submit button
+        $("#SubButton").click(function(){
+            //do something here...
+            //get api data? as json... 
+
+            console.log("test");
+        });
+
+
+    //devouring burgers...
+
+    </script>
 </body>
+
 </html>
