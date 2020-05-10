@@ -1,6 +1,8 @@
 //connects to mysql
 //next go to ORM object in orm.js
 
+// need to add a database to heroku...
+
 // Require mysql
 const mysql = require("mysql");
 

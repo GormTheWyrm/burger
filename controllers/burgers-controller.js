@@ -15,9 +15,9 @@ router.get("/", function (req, res) {
 
     //note; burger is the model we pulled earlier!
     burger.getAll(function(data) {
-      var handlebarObject = {
+      let handlebarObject = {
         // need to define this stuff accordian to burger model... which I need to write!
-        burgers: data
+        burger: data
         //how to get this data... why is this one plural?
       };
       console.log(handlebarObject); 
