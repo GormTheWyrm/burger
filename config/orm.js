@@ -16,7 +16,16 @@ let ORM = {
     // I need to figure out how to check if this works!
   },
   insertOne: function (table, col1, col2, val1, val2, callback) {
-    let querystr = "INSERT INTO " + table + " (" + col1 + ", " + col2 + ") VALUES(" + val1 + ", " + val2 + ");";
+    let querystr = "INSERT INTO " + table + " (" + col1 + ", " + col2 + ") VALUES (" + val1 + ", " + val2 + ");";
+    connection.query(querystr, function (err, res) {
+      if (err) { throw err; }
+      else {
+        // callback(res); this was just causing an error
+      }
+    })
+  },
+  testInsert: function (table, col1, col2, val1, val2, callback) {
+    let querystr = "INSERT INTO burgers (burger_name, devoured) VALUES ('fakeburger', false);";
     connection.query(querystr, function (err, res) {
       if (err) { throw err; }
       else {

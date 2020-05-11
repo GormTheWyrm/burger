@@ -21,10 +21,12 @@ let burger = {
             callback(res);
         });
     },
-    create: function (col1, col2, val1, val2, callback) {
-        ORM.create("burgers", col1, col2, val1, val2, function (res) {
+    create: function (val1, callback) {
+        ORM.insertOne("burgers", "burger_name", "devoured", val1, false, function (res) {
             callback(res);
+            console.log("burger create function ran in burger.js");
         });
+        
     },
 
     /*

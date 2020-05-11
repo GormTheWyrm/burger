@@ -28,8 +28,13 @@ router.get("/", function (req, res) {
 });
 
 router.post("/api/burgers", function (req, res) {
-//burger create function
+//this needs to collect data from the post because it wont reach my client function...
+// let myres = req.body.m 
 
+  //burger create function
+ 
+burgerName = `'${req.body.submitField.trim()}'`;
+ burger.create(burgerName); 
     // cat.create([
     //   "name", "sleepy"
     // ], [

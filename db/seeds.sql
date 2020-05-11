@@ -11,11 +11,6 @@ SELECT * FROM burgers;
 
 
 
--- commands ~~~  ~~~  ~~~
-
--- select all; wont this need to select all based on whether the burgers.devoured is true or false?
--- insert one
-
 
 
 

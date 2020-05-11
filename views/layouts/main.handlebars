@@ -19,8 +19,6 @@
     {{{ body }}}
     {{!-- if stylesheet refuses to work... I'll work here --}}
     <style>
-
-
         #subButton {
             background-color: cadetblue;
         }
@@ -46,16 +44,23 @@
         }
     </style>
     <script>
-        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SCRIPT
         //submit button
-
+       //submit button function is not working
+       /*
         $("#SubButton").on("submit", function (event) {
             event.preventDefault();
-    
+            console.log("test");
             let myBurger = {
                 burger_name: $("#input1").val().trim(),       //should it be "submitField?"
                 devoured: false
             };
+            console.log(JSON.stringify(myBurger));
+            //this is not console logging... this function is not working
+            // only info being sent is the form into...
+            //lets try making this json
+            // it is also returning enter (\r) and \n
+
 
             $.ajax("/api/burgers", {
                 type: "POST",
@@ -64,10 +69,12 @@
                 function () {
                     console.log("posted new burger");
                     location.reload();
+                    // this is not happening yet- probably because post did not go thru...
                 }
             );
 
         });
+         */
         //should the route be the same as the get, for restfulness?
         // this is not running- form is broken
         // https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form
