@@ -46,28 +46,38 @@
     <script>
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SCRIPT
         //submit button
-       //submit button function is not working
-       //make this into delete button
-       /*
-        $(".eat-me").on("submit", function (event) {
+        //submit button function is not working
+        //...does this need to ...happen here?
+        // having this function prevents data creation in database
+    /*
+        $(".main-form").on("submit", function (event) {
             event.preventDefault();
             console.log("test");
+            console.log(event);
+            //console.log(submitField); //this does not work
+            console.log($("#input1").val());    //this sends data
+            //.trim() was not working... probably not considered a string
 
-         // make into put post...
+            /*
+            let myBurger = {
+                burger_name: $("submitField").val().trim(),       //should it be "submitField?"
+                //"#input1" is undefined
+                devoured: false
+            };
 
             $.ajax("/api/burgers", {
-                type: "PUT",
+                type: "POST",
                 data: myBurger
             }).then(
                 function () {
                     console.log("posted new burger");
-                    location.reload();
+                    { { !--location.reload(); --} }
                     // this is not happening yet- probably because post did not go thru...
                 }
             );
-
+            
         });
-         */
+*/
         //should the route be the same as the get, for restfulness?
         // this is not running- form is broken
         // https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form

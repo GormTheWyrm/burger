@@ -13,33 +13,57 @@ let burger = require("../models/burger.js");  //imports burger model;
 
 router.get("/", function (req, res) {
 
-    //note; burger is the model we pulled earlier!
-    burger.getAll(function(data) {
-      let handlebarObject = {
-        // need to define this stuff accordian to burger model... which I need to write!
-        burger: data
-        //how to get this data... why is this one plural?
-      };
-      console.log(handlebarObject); 
-      res.render("index", handlebarObject);
-      // res.render('main', {layout : 'index'});   // alt code from online, testing; their main and index are opposite mine
-      // es.render (‘main’, {layout: ‘index’, key1: val1, key2: val2… keyn: valn});
-    });
+  //note; burger is the model we pulled earlier!
+  burger.getAll(function (data) {
+    let handlebarObject = {
+      // need to define this stuff accordian to burger model... which I need to write!
+      burger: data
+      //how to get this data... why is this one plural?
+    };
+    console.log(handlebarObject);
+    res.render("index", handlebarObject);
+    // res.render('main', {layout : 'index'});   // alt code from online, testing; their main and index are opposite mine
+    // es.render (‘main’, {layout: ‘index’, key1: val1, key2: val2… keyn: valn});
+  });
+});
+router.get("/api/burgers", function (req, res) {
+
+  //note; burger is the model we pulled earlier!
+  burger.getAll(function (data) {
+    return res.json(data);
+  });
 });
 
 // router.post("/api/burgers", function (req, res) {
-  router.post("/api/burgers", function (req, res) {
+router.post("/api/burgers", function (req, res) {
   //burger create function
-burgerName = `'${req.body.submitField.trim()}'`;
- burger.create(burgerName); 
+  burgerName = `'${req.body.submitField.trim()}'`;
+  burger.create(burgerName, //function(1var)
+  function(){
+    console.log("testing whether this function is passed at all");
+    //good, seems to pass after data created
+  res.redirect("/"); //it worked!
+  })
    //needs to reroute
    // res.json({ id: result.insertId }); no result here...
    // looks like orm function is supposed to send id back... ?
+   //this successfully runs the function to isert a new data entry in my database...
+   //...but then what? it just dies
+   // does this have to be done client end? 
+   // 
+   //... this has been posting twice occasionally- I think its resending data after a timeout
+   //...its trying to send the page to /api/burgers... or something
+   // maybe if i just send some data it will know it worked?
+  //  res.json({});
+   
+//orm logs "1 item created"
+//burger logs nothing
 });
 
-router.put("/api/burgers/:id", function(req, res) {
-// update burger function
-console.log("this should of updated");
+router.put("/api/burgers/:id", function (req, res) {
+  // update burger function
+  console.log("this should of updated");
+
 });
 
 /*

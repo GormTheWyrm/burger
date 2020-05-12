@@ -7,9 +7,7 @@ let ORM = {
     connection.query(querystr, function (err, res) {
       if (err) { throw err; }
       else {
-        callback(res);
-        //this feels like it should be a loop. I hate writing code that doesnt make sense
-        //why wont the function work on its own.. will it?
+        callback(res);  //seems to work; site loads on start
         // console.log(res);
       }
     })
@@ -20,8 +18,12 @@ let ORM = {
     connection.query(querystr, function (err, res) {
       if (err) { throw err; }
       else {
+        
+        console.log(res.affectedRows + " item created!");
+        //this console log works, and data is added.
         // callback(res); this was just causing an error
-        console.log(res.affectedRows + " row affected");
+        callback(res); //does this run a funciton?
+        //works now
       }
     })
   },
