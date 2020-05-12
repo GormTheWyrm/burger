@@ -9,7 +9,7 @@ let ORM = {
       else {
         callback(res);  //seems to work; site loads on start
         // console.log(res);
-        console.log("retrieving "+ res.length + " rows");
+        console.log("retrieving " + res.length + " rows");
       }
     })
 
@@ -19,7 +19,7 @@ let ORM = {
     connection.query(querystr, function (err, res) {
       if (err) { throw err; }
       else {
-        
+
         console.log(res.affectedRows + " item created!");
         //this console log works, and data is added.
         // callback(res); this was just causing an error
@@ -32,22 +32,26 @@ let ORM = {
     console.log("testing orm update");
     //updates collumn 2...
     //whereCol is id for this purpose, and most purposes
+    let querystr = "UPDATE " + table + " SET " + col + " = " + val + " WHERE " + whereCol + " = " + whereCol + ";";
+    connection.query(querystr, function (err, res) {
+      // this should be redone with question marks
+    });
   },
 
-//test function
-  testInsert: function (table, col1, col2, val1, val2, callback) {
-    let querystr = "INSERT INTO burgers (burger_name, devoured) VALUES ('fakeburger', false);";
-    connection.query(querystr, function (err, res) {
-      if (err) { throw err; }
-      else {
-        callback(res);
-      }
-    })
-  }
+    //test function
+    testInsert: function (table, col1, col2, val1, val2, callback) {
+      let querystr = "INSERT INTO burgers (burger_name, devoured) VALUES ('fakeburger', false);";
+      connection.query(querystr, function (err, res) {
+        if (err) { throw err; }
+        else {
+          callback(res);
+        }
+      })
+    }
 
 
 
-};
+  };
 
-module.exports = ORM;
+  module.exports = ORM;
 //this is not using "?" and so is not secure... right?

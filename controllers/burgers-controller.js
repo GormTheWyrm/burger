@@ -6,13 +6,13 @@ let router = new express.Router;      //this links router with servers router...
 let burger = require("../models/burger.js");  //imports burger model;
 
 
-
+// ROUTING
 router.get("/", function (req, res) {
   burger.getAll(function (data) {
     let handlebarObject = {
       burger: data
     };
-    // console.log(handlebarObject);
+    console.log(handlebarObject);
     res.render("index", handlebarObject);
   });
 });
@@ -23,8 +23,9 @@ router.get("/api/burgers", function (req, res) {
     return res.json(data);
   });
 });
+//perhaps if I give the containers a secret value or something based off of id, 
+//I can use that on the put method later!
 
-// router.post("/api/burgers", function (req, res) {
 router.post("/api/burgers", function (req, res) {
   //burger create function
   burgerName = `'${req.body.submitField.trim()}'`;
@@ -43,11 +44,22 @@ router.post("/api/burgers", function (req, res) {
 // NEXT STEP!
 router.put("/api/burgers/:id", function (req, res) {
   // update burger function
-  console.log("this should of updated");
+  // console.log(req.params.id);  //awesome, this function is called!
+    //body is empty...
+burger.devour(req.params.id, console.log(req.params.id));
 
+  // burger.devour(); //takes burgerId and a callback...
+  // oh oh; "{}" just appeared upon startup... where is that...
+// I JUST NEED TO FIGURE OUT HOW TO GET AN ID OFF OF THE CLIENT
+// and then pass it into the burger.devour method... I think...
 });
 
-
+/*
+Also if you want to redirect in put or delete (to get adress), you can't use normal res.redirect('/path'), 
+you should use res.redirect(303, '/path') instead. (source)
+If not, you'll get Cannot PUT error.
+https://stackoverflow.com/questions/18601922/using-the-put-method-with-express-js
+*/
 
 module.exports = router;
 

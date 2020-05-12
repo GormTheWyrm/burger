@@ -45,44 +45,34 @@
     </style>
     <script>
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SCRIPT
-        //submit button
-        //submit button function is not working
-        //...does this need to ...happen here?
-        // having this function prevents data creation in database
-    /*
-        $(".main-form").on("submit", function (event) {
+        //we propably need a function to make everythign wait until pageloads...
+
+
+        //devouring burgers...
+        $(".eat-me").on("click", function (event) {
             event.preventDefault();
-            console.log("test");
-            console.log(event);
-            //console.log(submitField); //this does not work
-            console.log($("#input1").val());    //this sends data
-            //.trim() was not working... probably not considered a string
+            let id = $(this).data("id");
+            //I dont know how this works...
+            // ... "data-id={{id}}" in partial
+            let mydata = {test: "testData"};
 
-            /*
-            let myBurger = {
-                burger_name: $("submitField").val().trim(),       //should it be "submitField?"
-                //"#input1" is undefined
-                devoured: false
-            };
-
-            $.ajax("/api/burgers", {
-                type: "POST",
-                data: myBurger
+            $.ajax("/api/burgers/" + id, {
+                type: "PUT",
+                data: mydata
+                //what do I put in data; json, value...?
             }).then(
                 function () {
-                    console.log("posted new burger");
-                    { { !--location.reload(); --} }
-                    // this is not happening yet- probably because post did not go thru...
+                    console.log("changed item");
+                    // Reload the page to get the updated list
+                    //location.reload();
                 }
             );
-            
         });
-*/
-        //should the route be the same as the get, for restfulness?
-        // this is not running- form is broken
-        // https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form
+// I need this function to give server the id to be changed...
+//thats really all I want... right?
 
-    //devouring burgers...
+
+
 
     </script>
 </body>
