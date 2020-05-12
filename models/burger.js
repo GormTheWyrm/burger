@@ -4,15 +4,7 @@ let ORM = require("../config/orm");
 
 //NEED TO BUILD ORM FIRST!
 
-/*
 
-In `models`, make a `burger.js` file.
-    * Inside `burger.js`, import `orm.js` into `burger.js`
-    * Also inside `burger.js`, create the code that will call
-    * the ORM functions using burger specific input for the ORM.
-    * Export at the end of the `burger.js` file.
-
-*/
 
 let burger = {
     // oooh, this uses the 
@@ -25,34 +17,15 @@ let burger = {
     create: function (val1, callback) {
         ORM.insertOne("burgers", "burger_name", "devoured", val1, false, function (res) {
             // console.log("burger create function ran in burger.js");
-            //this runs now
-            //oops, need to call callback!
             callback();
-            
+            //I honestly dont know what the callback is for but I'm afraid if I remove it it will break again
         });
         
     },
+    devour: function (burgerId, callback) {
+        burger.updateOne("burgers", "devoured", true, "id", burgerId);
+    }
 
-    /*
-    // ~~ reference below!
-        all: function (callback) {
-            orm.all("burgers", function (res) {    //why plural here?
-                callback(res);
-            });
-        },
-        // The variables cols and vals are arrays.
-        create: function (cols, vals, cb) {
-            orm.create("cats", cols, vals, function (res) {
-                cb(res);
-            });
-        },
-        update: function (objColVals, condition, cb) {
-            orm.update("cats", objColVals, condition, function (res) {
-                cb(res);
-            });
-        }
-    
-        */
 };
 
 // Export the database functions for the controller (catsController.js).
