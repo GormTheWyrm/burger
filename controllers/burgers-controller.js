@@ -27,24 +27,14 @@ router.get("/", function (req, res) {
     });
 });
 
-router.post("/api/burgers", function (req, res) {
-//this needs to collect data from the post because it wont reach my client function...
-// let myres = req.body.m 
-
+// router.post("/api/burgers", function (req, res) {
+  router.post("/api/burgers", function (req, res) {
   //burger create function
- 
 burgerName = `'${req.body.submitField.trim()}'`;
  burger.create(burgerName); 
-    // cat.create([
-    //   "name", "sleepy"
-    // ], [
-    //   req.body.name, req.body.sleepy
-    // ], function(result) {
-    //   // Send back the ID of the new quote
-    //   res.json({ id: result.insertId });
-    // });
-    // ...figure this out...
-    console.log("this should of posted");
+   //needs to reroute
+   // res.json({ id: result.insertId }); no result here...
+   // looks like orm function is supposed to send id back... ?
 });
 
 router.put("/api/burgers/:id", function(req, res) {

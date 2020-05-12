@@ -21,9 +21,13 @@ let ORM = {
       if (err) { throw err; }
       else {
         // callback(res); this was just causing an error
+        console.log(res.affectedRows + " row affected");
       }
     })
   },
+
+
+
   testInsert: function (table, col1, col2, val1, val2, callback) {
     let querystr = "INSERT INTO burgers (burger_name, devoured) VALUES ('fakeburger', false);";
     connection.query(querystr, function (err, res) {

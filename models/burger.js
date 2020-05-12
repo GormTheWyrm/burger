@@ -19,12 +19,15 @@ let burger = {
     getAll: function (callback) {
         ORM.selectAll("burgers", function (res) {
             callback(res);
+            
         });
     },
     create: function (val1, callback) {
         ORM.insertOne("burgers", "burger_name", "devoured", val1, false, function (res) {
             callback(res);
             console.log("burger create function ran in burger.js");
+            //function is adding burgers to database but not running this console.log
+            
         });
         
     },

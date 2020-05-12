@@ -47,23 +47,16 @@
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SCRIPT
         //submit button
        //submit button function is not working
+       //make this into delete button
        /*
-        $("#SubButton").on("submit", function (event) {
+        $(".eat-me").on("submit", function (event) {
             event.preventDefault();
             console.log("test");
-            let myBurger = {
-                burger_name: $("#input1").val().trim(),       //should it be "submitField?"
-                devoured: false
-            };
-            console.log(JSON.stringify(myBurger));
-            //this is not console logging... this function is not working
-            // only info being sent is the form into...
-            //lets try making this json
-            // it is also returning enter (\r) and \n
 
+         // make into put post...
 
             $.ajax("/api/burgers", {
-                type: "POST",
+                type: "PUT",
                 data: myBurger
             }).then(
                 function () {

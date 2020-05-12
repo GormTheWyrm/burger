@@ -3,7 +3,6 @@
 <div class="preDiv">
   {{#each burger}}
   {{#unless devoured}}
-  {{!-- {{> burgers/cat-block devoured=false}} --}}
   {{>burgers/partialBurger devoured=false}}
   {{/unless}}
   {{/each}}
@@ -13,9 +12,7 @@
 <div class="postDiv">
   {{#each burger}}
   {{#if devoured}}
-  {{!-- {{> cats/cat-block sleep=true}}  need to change the cats/cat-block part... --}}
   {{>burgers/partialBurger devoured=true}}
-  {{!-- {{>postBurger}} --}}
   {{/if}}
   {{/each}}
 </div>
@@ -28,4 +25,3 @@
   <input type="submit" value="Submit" id="subButton">
 </form>
 <p>Click the "Submit" button to add a new burger to the lineup</p>
-{{!-- why is this going to "/?" ? --}}
