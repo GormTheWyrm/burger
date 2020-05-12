@@ -54,17 +54,17 @@
             let id = $(this).data("id");
             //I dont know how this works...
             // ... "data-id={{id}}" in partial
-            let mydata = {test: "testData"};
+           console.log("clicked devour");
 
             $.ajax("/api/burgers/" + id, {
-                type: "PUT",
-                data: mydata
+                type: "PUT"
+ 
                 //what do I put in data; json, value...?
             }).then(
                 function () {
                     console.log("changed item");
                     // Reload the page to get the updated list
-                    //location.reload();
+                    location.reload();
                 }
             );
         });

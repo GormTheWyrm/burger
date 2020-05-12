@@ -46,12 +46,11 @@ router.put("/api/burgers/:id", function (req, res) {
   // update burger function
   // console.log(req.params.id);  //awesome, this function is called!
     //body is empty...
-burger.devour(req.params.id, console.log(req.params.id));
+burger.devour(req.params.id, function(){
+  res.sendStatus(200);
+});
 
-  // burger.devour(); //takes burgerId and a callback...
-  // oh oh; "{}" just appeared upon startup... where is that...
-// I JUST NEED TO FIGURE OUT HOW TO GET AN ID OFF OF THE CLIENT
-// and then pass it into the burger.devour method... I think...
+
 });
 
 /*

@@ -17,13 +17,13 @@ let burger = {
     create: function (val1, callback) {
         ORM.insertOne("burgers", "burger_name", "devoured", val1, false, function (res) {
             // console.log("burger create function ran in burger.js");
-            callback();
+            callback(res);
             //I honestly dont know what the callback is for but I'm afraid if I remove it it will break again
         });
         
     },
     devour: function (burgerId, callback) {
-        ORM.updateOne("burgers", "devoured", true, "id", burgerId);
+        ORM.updateOne("burgers", "devoured", true, "id", burgerId, callback);
     }
 
 };

@@ -32,9 +32,11 @@ let ORM = {
     console.log("testing orm update");
     //updates collumn 2...
     //whereCol is id for this purpose, and most purposes
-    let querystr = "UPDATE " + table + " SET " + col + " = " + val + " WHERE " + whereCol + " = " + whereCol + ";";
+    let querystr = "UPDATE " + table + " SET " + col + " = " + val + " WHERE " + whereCol + " = " + whereVal + ";";
     connection.query(querystr, function (err, res) {
       // this should be redone with question marks
+      if (err) {throw err};
+      callback(res);
     });
   },
 
