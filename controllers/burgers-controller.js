@@ -12,7 +12,7 @@ router.get("/", function (req, res) {
     let handlebarObject = {
       burger: data
     };
-    console.log(handlebarObject);
+    // console.log(handlebarObject);
     res.render("index", handlebarObject);
   });
 });
@@ -31,7 +31,7 @@ router.post("/api/burgers", function (req, res) {
   burgerName = `'${req.body.submitField.trim()}'`;
   burger.create(burgerName, //function(1var)
   function(){
-    console.log("testing whether this function is passed at all");
+    // console.log("testing whether this function is passed at all");
     //good, seems to pass after data created
   res.redirect("/"); //it worked!
   })

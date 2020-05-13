@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eat-Da-Burger!</title>
 
-    {{!-- <link rel="stylesheet" href="../../public/assets/css/style.css" type="text/css" /> --}}
-    {{!-- css does not work --}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
     <script src="https://code.jquery.com/jquery.js"></script>
-    {{!-- <script src="../../public/assets/js/client.js"></script> --}}
-    {{!--  --}}
+
 </head>
 
 </head>
@@ -29,12 +29,12 @@
 
         .postDiv {
             background-color: seagreen;
-            width: 260px;
+            border: solid 1px darkgreen;
         }
 
         .preDiv {
             background-color: sienna;
-            width: 260px;
+             border: solid 1px darkred;
         }
 
         .burger-holder {
@@ -42,35 +42,45 @@
             height: 33px;
             color: silver;
         }
+
+        .background-div {
+            background-color: sandybrown;
+        }
+        .add-space{
+            margin-top: 15px;
+        }
     </style>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"> </script>
+    {{!-- integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous" --}}
+    {{!-- somehow got the slim version of jquery without ajax in it...  --}}
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    {{!-- // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SCRIPT
+     //we propably need a function to make everything wait until pageloads... 
+   
+
+    //devouring burgers... 
+    --}}
     <script>
-        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SCRIPT
-        //we propably need a function to make everythign wait until pageloads...
-
-
-        //devouring burgers...
         $(".eat-me").on("click", function (event) {
             event.preventDefault();
             let id = $(this).data("id");
-            //I dont know how this works...
-            // ... "data-id={{id}}" in partial
-           console.log("clicked devour");
+            console.log("clicked devour");
 
             $.ajax("/api/burgers/" + id, {
                 type: "PUT"
- 
-                //what do I put in data; json, value...?
             }).then(
                 function () {
                     console.log("changed item");
-                    // Reload the page to get the updated list
                     location.reload();
                 }
             );
         });
-// I need this function to give server the id to be changed...
-//thats really all I want... right?
-
 
 
 

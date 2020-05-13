@@ -11,7 +11,7 @@ let burger = {
     getAll: function (callback) {
         ORM.selectAll("burgers", function (res) {
             callback(res);
-            
+            // would be nice to order these by !devoured...
         });
     },
     create: function (val1, callback) {
