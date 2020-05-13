@@ -24,6 +24,7 @@ let burger = {
     },
     devour: function (burgerId, callback) {
         ORM.updateOne("burgers", "devoured", true, "id", burgerId, callback);
+        // console.log(burgerId);
     }
 
 };
