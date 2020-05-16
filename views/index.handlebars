@@ -1,9 +1,12 @@
 <div class="container-md background-div">
+    <div class="push"></div>
   <h1> Eat-Da-Burger</h1>
+    <div class="push"></div>
+
 
   {{#each burger}}
   <div class="row-col-3">
-    <div class="col-7 preDiv">
+    <div class="col-7 preDiv justify-content-start">
       {{#unless devoured}}
       {{>burgers/partialBurger devoured=false}}
       {{/unless}}
@@ -11,26 +14,22 @@
   </div>
   {{/each}}
 
+  <div class="push"></div>
 
-
-
-  <div class="container-sm">
-
-
-    {{#each burger}}
-    <div class="row justify-content-end">
-      <div class="col-7 postDiv">
-        {{#if devoured}}
-        {{>burgers/partialBurger devoured=true}}
-        {{/if}}
-      </div>
+  {{#each burger}}
+  <div class="row justify-content-end">
+    <div class="col-7 postDiv">
+      {{#if devoured}}
+      {{>burgers/partialBurger devoured=true}}
+      {{/if}}
     </div>
-    {{/each}}
-
   </div>
+  {{/each}}
 
 
-  <div class="row justify-content-center add-space">
+
+  <div class="push"></div>
+  <div class="row justify-content-center">
     <form action="/api/burgers" method="POST" class="main-form">
       <textarea id="input1" rows="6" cols="40" name="submitField"></textarea>
   </div>
@@ -38,7 +37,8 @@
     <input type="submit" value="Submit" id="subButton">
   </div>
   </form>
-  <p>Click the "Submit" button to add a new burger to the lineup</p>
-
+  <div class="row justify-content-center">
+    <p>Click the "Submit" button to add a new burger to the lineup</p>
+  </div>
 
 </div>
